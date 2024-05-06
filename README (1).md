@@ -16,8 +16,6 @@
 
 ## Summary of Workdone
 
-Include only the sections that are relevant an appropriate.
-
 ### Data
 
 * Data:
@@ -30,6 +28,7 @@ Include only the sections that are relevant an appropriate.
 
 * Used the missing percentage of each column and deleted ones with over 99%
 * A good amount of numerical features were marked as categorical
+* Making a tabulate out of the categorical features helped with the added column that counts all the products a consumer buys.
 
 #### Data Visualization
 Categorical Features after encoding: 
@@ -92,37 +91,14 @@ key = {
 
 ### Conclusions
 
-* State any conclusions you can infer from your work. Example: LSTM work better than GRU.
-
-### Future Work
-
-* What would be the next thing that you would try.
-* What are some other studies that can be done starting from here.
-
-## How to reproduce results
-
-* In this section, provide instructions at least one of the following:
-   * Reproduce your results fully, including training.
-   * Apply this package to other data. For example, how to use the model you trained.
-   * Use this package to perform their own study.
-* Also describe what resources to use for this package, if appropirate. For example, point them to Collab and TPUs.
+* The XGBoost model's performance in the Santander Kaggle challenge fell short, indicated by its low Kaggle score (0.004) and high MSE/MAE
+* Next time, I would like to add more features and experiment on those. The preprocessing steps will go through cross-validation more thoroughly aswell.
 
 ### Overview of files in repository
 
-* Describe the directory structure, if any.
-* List all relavent files and describe their role in the package.
-* An example:
-  * utils.py: various functions that are used in cleaning and visualizing data.
-  * preprocess.ipynb: Takes input data in CSV and writes out data frame after cleanup.
-  * visualization.ipynb: Creates various visualizations of the data.
-  * models.py: Contains functions that build the various models.
-  * training-model-1.ipynb: Trains the first model and saves model during training.
-  * training-model-2.ipynb: Trains the second model and saves model during training.
-  * training-model-3.ipynb: Trains the third model and saves model during training.
-  * performance.ipynb: loads multiple trained models and compares results.
-  * inference.ipynb: loads a trained model and applies it to test data to create kaggle submission.
-
-* Note that all of these notebooks should contain enough text for someone to understand what is happening.
+* Kaggle_3402(done).ipynb: Shows the code behind the preprocessing and visualizations. Also includes the training and test sets.
+* ind_empleado_plot.png, indext_plot.png, indfall_plot.png, indresi_plot.png, segmento_plot.png, sexo_plot.png, tiprel_1mes_plot.png
+*  Images of the visuals, specifically the categorical features
 
 ### Software Setup
 Essential libraries (type as seen to import):
@@ -175,12 +151,6 @@ from sklearn.feature_selection import SelectKBest, chi2
     publisher = {Kaggle},
     year = {2016},
     url = {https://kaggle.com/competitions/santander-product-recommendation}
-
-
-
-
-
-
 
 "BLACKBOXAI. (2023). BLACKBOXAI: A World-Class AI Assistant. https://www.blackboxai.com/"
 
