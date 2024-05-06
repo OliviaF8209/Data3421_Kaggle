@@ -43,19 +43,27 @@ Categorical Features after encoding:
 
 key = {
     'ind_empleado': {'A': 0, 'B': 1, 'F': 2, 'N': 3, 'P': 4},
+    
     'pais_residencia': {'ES': 0, 'CH': 1, 'DE': 2, 'GB': 3, 'BE': 4, 'DJ': 5, 'IE': 6, 'QA': 7, 'US': 8, 'VE': 9,
                        'DO': 10, 'SE': 11, 'AR': 12, 'CA': 13, 'PL': 14, 'CN': 15, 'CM': 16, 'FR': 17, 'AT': 18,
                        'RO': 19, 'LU': 20, 'PT': 21, 'CL': 22, 'IT': 23, 'MR': 24, 'MX': 25, 'SN': 26, 'BR': 27,
                        'CO': 28, 'PE': 29, 'RU': 30, 'LT': 31, 'EE': 32, 'MA': 33, 'HN': 34, 'BG': 35, 'NO': 36,
                        'GT': 37, 'UA': 38, 'NL': 39, 'GA': 40, 'IL': 41, 'JP': 42, 'EC': 43, 'IN': 44},
+                       
     'sexo': {'V': 0, 'H': 1},
+    
     'tiprel_1mes': {'A': 0, 'I': 1, 'P': 2, 'R': 3},
+    
     'indresi': {'S': 0, 'N': 1},
+    
     'indext': {'N': 0, 'S': 1},
+    
     'canal_entrada': {'KAT': 0, 'KHE': 1, 'KFC': 2, 'KHN': 3, 'KFA': 4, 'KHM': 5, 'KHL': 6, 'RED': 7, 'KHQ': 8,
                       'KHO': 9, 'KHK': 10, 'KAZ': 11, 'KEH': 12, 'KBG': 13, 'KHF': 14, 'KHC': 15, 'KHD': 16,
                       'KAK': 17, 'KAD': 18, 'KDH': 19, 'KGC': 20},
+                      
     'indfall': {'N': 0, 'S': 1},
+    
     'segmento': {'01 - TOP': 0, '02 - PARTICULARES': 1, '03 - UNIVERSITARIO': 2}
 }
 
@@ -70,14 +78,16 @@ key = {
 * Training time varied based on data size and complexity.
 * Training curves were monitored to assess model convergence.
 * Training was stopped when validation loss plateaued or started to increase.
-* Difficulties arose from feature inconsistencies, resolved by careful examination of preprocessing steps and data structures.
+* Difficulties arose from feature inconsistencies, resolved by cadjusting preprocessing steps and data structures.
 
 ### Performance Comparison
 
 * Key Performance Metric: Mean Squared Error (MSE) and Mean Absolute Error (MAE) were used to evaluate model performance.
  * Mean Squared Error (MSE): 5.354332437543275
  * Mean Absolute Error (MAE): 2.1902204738622957
-* 
+   
+* Feature importance plot visually represents the significance of each feature in model predictions.
+* It highlights key features like `indrel_1mes` and `ind_empleado`, indicating their importance in predicting customer behavior and product purchases.
 ![Feature Importance Plot](https://github.com/OliviaF8209/Data3421_Kaggle/assets/143292953/4b7ff5c0-f0a4-4db2-a079-d97294a9beb6)
 
 ### Conclusions
@@ -115,27 +125,64 @@ key = {
 * Note that all of these notebooks should contain enough text for someone to understand what is happening.
 
 ### Software Setup
-* List all of the required packages.
-* If not standard, provide or point to instruction for installing the packages.
-* Describe how to install your package.
+Essential libraries (type as seen to import):
+* import pandas as pd
+* import numpy as np
+* import matplotlib.pyplot as plt
+* from sklearn.model_selection import train_test_split
+
+from sklearn.pipeline import Pipeline
+from sklearn.linear_model import LinearRegression
+from sklearn.metrics import mean_squared_error, r2_score
+import os
+from sklearn.preprocessing import LabelEncoder
+from sklearn.feature_selection import SelectKBest, chi2
+
+* from sklearn.model_selection import RandomizedSearchCV
+* from xgboost import XGBRegressor
 
 ### Data
 
-* Point to where they can download the data.
-* Lead them through preprocessing steps, if necessary.
+* Use the link above and download the file in the Data tab aka where the Dataset Description is located.
+* For missing values, use XGBoost to fill them in
+* Check which features are numerical or categorical
 
 ### Training
 
-* Describe how to train the model
+* How to train the dataset:
+  - Ensure your dataset is preprocessed and split into training and testing sets.
+  - Consider using XGBoost, a suitable algorithm for predicting customer behavior.
+  - Initialize the XGBoost model with appropriate hyperparameters for your dataset.
+  - Train the model using the training data to learn from customer behavior patterns.
+  - Evaluate model performance using metrics like MSE and MAE on the test set.
+  - Fine-tune hyperparameters if necessary to improve performance.
+  - Validate results by comparing predicted product purchases with actual purchases from the test set (make sure the rows and users match).
 
 #### Performance Evaluation
 
-* Describe how to run the performance evaluation.
+1. Prepare trained model and test dataset.
+2. Use appropriate evaluation metrics such as MSE and MAE to assess model performance.
+3. Make predictions on the test dataset using the trained model.
+4. Compare the predicted values with the actual values to calculate the evaluation metrics.
+5. Interpret the results to understand how well the model performs in predicting customer behavior and product purchases.
 
 
 ## Citations
 
-* Provide any references.
+* @misc{santander-product-recommendation,
+    author = {Meg Risdal, Mercedes Piedra, Wendy Kan},
+    title = {Santander Product Recommendation},
+    publisher = {Kaggle},
+    year = {2016},
+    url = {https://kaggle.com/competitions/santander-product-recommendation}
+
+
+
+
+
+
+
+"BLACKBOXAI. (2023). BLACKBOXAI: A World-Class AI Assistant. https://www.blackboxai.com/"
 
 
 
