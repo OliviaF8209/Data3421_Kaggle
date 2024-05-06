@@ -1,5 +1,7 @@
 ![](UTA-DataScience-Logo.png)
 
+
+
 # Project Title
 
 * **One Sentence Summary** In this challenge, participants predict what new products Santander bank customers will buy by June 28, 2016, based on their past purchases by May 28, 2016. https://www.kaggle.com/competitions/santander-product-recommendation/data  
@@ -30,32 +32,53 @@ Include only the sections that are relevant an appropriate.
 * A good amount of numerical features were marked as categorical
 
 #### Data Visualization
-
+Categorical Features after encoding: 
 ![image](https://github.com/OliviaF8209/Data3421_Kaggle/assets/143292953/5cc3941a-8a2d-4e2c-b721-80d744ae9fff)
+![image](https://github.com/OliviaF8209/Data3421_Kaggle/assets/143292953/d578fafd-9f3f-4ca9-911a-40d139f5ece6)
+![image](https://github.com/OliviaF8209/Data3421_Kaggle/assets/143292953/4a2db5aa-3c02-496b-9769-34851dfd33cc)
+![image](https://github.com/OliviaF8209/Data3421_Kaggle/assets/143292953/0f16e551-a779-422d-a0aa-1f780b77d7db)
+![image](https://github.com/OliviaF8209/Data3421_Kaggle/assets/143292953/918c33a1-3683-41da-8207-8bc317076446)
+![image](https://github.com/OliviaF8209/Data3421_Kaggle/assets/143292953/46161e7f-2d93-433e-8a8c-dde01994db3a)
+![image](https://github.com/OliviaF8209/Data3421_Kaggle/assets/143292953/87053d51-5fc0-446d-9962-f1c69c660663)
 
+key = {
+    'ind_empleado': {'A': 0, 'B': 1, 'F': 2, 'N': 3, 'P': 4},
+    'pais_residencia': {'ES': 0, 'CH': 1, 'DE': 2, 'GB': 3, 'BE': 4, 'DJ': 5, 'IE': 6, 'QA': 7, 'US': 8, 'VE': 9,
+                       'DO': 10, 'SE': 11, 'AR': 12, 'CA': 13, 'PL': 14, 'CN': 15, 'CM': 16, 'FR': 17, 'AT': 18,
+                       'RO': 19, 'LU': 20, 'PT': 21, 'CL': 22, 'IT': 23, 'MR': 24, 'MX': 25, 'SN': 26, 'BR': 27,
+                       'CO': 28, 'PE': 29, 'RU': 30, 'LT': 31, 'EE': 32, 'MA': 33, 'HN': 34, 'BG': 35, 'NO': 36,
+                       'GT': 37, 'UA': 38, 'NL': 39, 'GA': 40, 'IL': 41, 'JP': 42, 'EC': 43, 'IN': 44},
+    'sexo': {'V': 0, 'H': 1},
+    'tiprel_1mes': {'A': 0, 'I': 1, 'P': 2, 'R': 3},
+    'indresi': {'S': 0, 'N': 1},
+    'indext': {'N': 0, 'S': 1},
+    'canal_entrada': {'KAT': 0, 'KHE': 1, 'KFC': 2, 'KHN': 3, 'KFA': 4, 'KHM': 5, 'KHL': 6, 'RED': 7, 'KHQ': 8,
+                      'KHO': 9, 'KHK': 10, 'KAZ': 11, 'KEH': 12, 'KBG': 13, 'KHF': 14, 'KHC': 15, 'KHD': 16,
+                      'KAK': 17, 'KAD': 18, 'KDH': 19, 'KGC': 20},
+    'indfall': {'N': 0, 'S': 1},
+    'segmento': {'01 - TOP': 0, '02 - PARTICULARES': 1, '03 - UNIVERSITARIO': 2}
+}
 
 ### Problem Formulation
 
-* Define:
-  * Input / Output
-  * Models
-    * Describe the different models you tried and why.
-  * Loss, Optimizer, other Hyperparameters.
+*  Inputs include customer demographics and product ownership, while outputs are the predicted additional products. Various models like XGBoost were experimented with due to their ability to handle tabular data. Loss functions, optimizers, and hyperparameters such as learning rate and max depth were adjusted to optimize model performance.
 
 ### Training
 
-* Describe the training:
-  * How you trained: software and hardware.
-  * How did training take.
-  * Training curves (loss vs epoch for test/train).
-  * How did you decide to stop training.
-  * Any difficulties? How did you resolve them?
+* Training was conducted using XGBoost on a CPU-based system.
+* Despite identical preprocessing, a feature shape mismatch error occurred between train and test sets.
+* Training time varied based on data size and complexity.
+* Training curves were monitored to assess model convergence.
+* Training was stopped when validation loss plateaued or started to increase.
+* Difficulties arose from feature inconsistencies, resolved by careful examination of preprocessing steps and data structures.
 
 ### Performance Comparison
 
-* Clearly define the key performance metric(s).
-* Show/compare results in one table.
-* Show one (or few) visualization(s) of results, for example ROC curves.
+* Key Performance Metric: Mean Squared Error (MSE) and Mean Absolute Error (MAE) were used to evaluate model performance.
+ * Mean Squared Error (MSE): 5.354332437543275
+ * Mean Absolute Error (MAE): 2.1902204738622957
+* 
+![Feature Importance Plot](https://github.com/OliviaF8209/Data3421_Kaggle/assets/143292953/4b7ff5c0-f0a4-4db2-a079-d97294a9beb6)
 
 ### Conclusions
 
