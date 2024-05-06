@@ -31,6 +31,7 @@ Include only the sections that are relevant an appropriate.
 
 #### Data Visualization
 
+![image](https://github.com/OliviaF8209/Data3421_Kaggle/assets/143292953/5cc3941a-8a2d-4e2c-b721-80d744ae9fff)
 
 
 ### Problem Formulation
